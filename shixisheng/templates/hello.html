@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head><!-- CDN hosted by Cachefly -->
+<script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+<script>tinymce.init({selector:'textarea'});</script>
+</head>
+
+{{ab}}
+{{date}}
+
+
+
+
+<img src="/static/圣诞.jpg" style="width:200px;" />
+
+{%for a in all%}
+{{a.id}} | {{a.name}} | {{a.address}}|{{a.content}}|{{a.data}}
+
+<div>{{a.content|safe}}</div>
+{%endfor%}
+
+{%for a in all_img%}
+<img src="/media/{{a.img}}" />
+{%endfor%}
+
+<form action="/new" method="POST">
+{%csrf_token%}
+<input type="text" name="name"/>
+<input type="text" name="address"/>
+<textarea name="content"></textarea>	
+<button>添加</button>
+</form>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Alternate elements</h4>
+    <p> <code>1</code>2<code>3</code>4<code>5</code>6<code>7</code> </p>
+  </div>
+
+
+
+
+</html>
